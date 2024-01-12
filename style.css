@@ -1,0 +1,388 @@
+:root {
+    --ff-primary: 'Poppins', sans-serif;
+}
+
+/* Remove default margin */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+
+h1,
+h2 {
+  font-family: var(--ff-primary);
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+  }
+  
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+    font-family: var(--ff-primary);
+    font-size: 1rem;
+}
+  
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+  
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+  /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+nav {
+    height: 1rem;
+    width:auto;
+    background-color: #292929;
+    padding: none;
+}
+
+.primary-header {
+    margin-top: 4rem;
+    max-width: 45.6rem;
+}
+
+.primary-header h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    color:#292929;
+}
+
+.primary-header a {
+    color:#292929;
+    text-decoration: none;
+    padding-right: 0.25rem;
+}
+
+/* ----------------------------- */
+/* Layout                        */
+/* ----------------------------- */
+
+
+.wrapper {
+    max-width: 70rem;
+    margin-inline: auto;
+    padding-inline: 2rem;
+}
+
+.stacked {
+    display: grid;
+}
+  
+.stacked > * {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+}
+
+
+
+/* HOME layout */
+
+.main-content-grid {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 4rem;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 2fr));
+}
+
+/*width is 1.25 and height ratio is 1 */
+.card {
+    position: relative;
+    /*border: 3px solid pink;*/
+    aspect-ratio: 1.25/ 1;
+}
+
+.card-content {
+    position: absolute;
+    background:white;
+    align-self: self-end;
+    padding: 2rem;
+    box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.2);
+}
+
+.card-title {
+    font-size: 1rem;  
+    color: #F89344;
+    font-weight:600;
+}
+
+.card-description {
+    font-size: 1.5rem;
+    font-weight:600;
+}
+
+.card-img {
+    aspect-ratio: 1 / 1;
+    position: absolute;
+    width: 100%;
+    object-fit:contain;
+    object-position: top;
+}
+
+.profile {
+    position: relative;
+    display: flex;
+    flex-direction: column; /*aligns picture above text vertically*/
+    justify-content: center;
+    align-items:center;
+    width: 100%;
+    background-color:#292929;
+   
+}
+
+.profile-img {
+    position:relative;
+    max-height: 180px;
+    max-width: 180px;
+    border-radius: 50%;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.profile p {
+    text-align: center;
+    max-width: 44.5rem;
+    color: #FFFFFF;
+    font-size: 1rem; 
+    font-weight: 400;
+    line-height: 1.5;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-profile {
+    color:#FB9E31;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 3.5rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 1em;
+    width: 100%;
+    height: 6.25rem;
+    background-color: #121212;
+}
+
+.footer-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+    justify-content: space-between;
+}
+
+.footer-links>*:last-child {
+    padding-right: 3rem;
+}
+
+
+/* Project Page layout */
+
+.wrapper--project {
+    max-width: 70rem;
+    margin-inline: auto;
+    padding-inline: 2rem;
+}
+
+.primary-header--project {
+    margin-top: 2rem;
+    max-width: 45.6rem;
+}
+
+.primary-header--project h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+    color:#292929;
+}
+
+.home-link {
+    margin-top: 2rem;
+}
+.home-link-text {
+    text-decoration: none;
+    color: #FF642F;
+    font-weight: 600;
+}
+
+.main-content-grid--project {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(46rem, 1fr));
+}
+
+.card--project {
+    display: grid;
+    /*border: 3px solid pink;*/
+}
+
+.card-img--project {
+    width: 100%;
+    max-height: 39rem;
+    object-fit:contain;
+    object-position: top;
+}
+
+.project-sum {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    place-items: center;
+}
+
+.project-sum p {
+    text-align: center;
+    max-width: 57.5rem;
+    max-height: 7rem;
+}
+
+.gallery-img {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+}
+
+.img-placeholder-5,
+.img-placeholder-6,
+.img-placeholder-7,
+.img-placeholder-8 {
+    display: grid;
+    place-items: center;
+    max-width: 69.5rem;
+    max-height: 139rem;
+    color: #FFF;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.img-placeholder-5 {
+    background-color: #c4c4c4;
+    height: 34.7rem;
+}
+
+.img-placeholder-6 {
+    background-color: #A4A0A0;
+    height: 34.7rem;
+}
+
+.img-placeholder-7 {
+    background-color: #959494;
+    height: 34.7rem;
+}
+
+.img-placeholder-8 {
+    background-color: #797878;
+    height: 34.7rem;
+}
+
+.project-card-row {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(calc((66rem - 2 * 1.25rem) / 3), 3fr));
+    max-width: 1108px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card--row {
+    position: relative;
+    /*border: 3px solid pink;*/
+    aspect-ratio: 1/ 1;
+}
+
+.card-img--row {
+    position: absolute;
+    width: 100%;
+    object-fit:contain;
+    object-position: top;
+}
+
+
+@media (max-width: 40em) {
+    /* Styles for screens up to 40em (640px) width - mobile */
+
+   /*Home page*/
+   
+    .primary-header h1,
+    .primary-header--project h1 {
+        font-size: 3rem;
+    }
+
+    .wrapper {
+        padding-inline: 1rem; /* Adjust padding for smaller screens */
+    }
+
+    .main-content-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* Full-width columns */
+        gap: 1rem; /* Reduce gap between items */
+    }
+
+    .card-img {
+        aspect-ratio: 1 / 1;
+        position: relative;
+    }
+
+    .profile p {
+        width: 90%; 
+        max-width: none; /* Remove max-width constraint */
+        line-height: 1.8;
+    }
+ 
+    /*Project Page*/
+
+    .wrapper--project {
+        padding-inline: 0; /* Adjust padding for smaller screens */
+    }
+
+    .project-sum p {
+        padding-inline: 1rem;
+        max-height: none;
+    }
+
+    .main-content-grid--project {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr)); /* Full-width columns */
+    }
+
+    .project-card-row {
+        max-width: none;
+
+    }
+
+}
+
+
+
