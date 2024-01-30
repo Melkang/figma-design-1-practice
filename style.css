@@ -94,7 +94,9 @@ nav {
 }
 
 .stacked {
-    display: grid;
+    /*parent is grid and card stacked class is flex*/
+    display: flex;
+    flex-direction: column;
 }
   
 .stacked > * {
@@ -106,6 +108,7 @@ nav {
 
 /* HOME layout */
 
+
 .main-content-grid {
     display: grid;
     gap: 1.25rem;
@@ -114,19 +117,18 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(25rem, 2fr));
 }
 
-/*width is 1.25 and height ratio is 1 */
 .card {
     position: relative;
     /*border: 3px solid pink;*/
-    aspect-ratio: 1.25/ 1;
+    overflow: hidden; /* blocks the overflow and hides the rest of the picture*/
+    box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.2); 
 }
 
 .card-content {
-    position: absolute;
+    position: relative; /* not absolute(which would have broken out of the grid), but relative will put the content in front of the image */
     background:white;
-    align-self: self-end;
     padding: 2rem;
-    box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.2);
+    margin-top: auto; /*pushes box content to the bottom of card*/
 }
 
 .card-title {
@@ -141,11 +143,14 @@ nav {
 }
 
 .card-img {
-    aspect-ratio: 1 / 1;
-    position: absolute;
     width: 100%;
-    object-fit:contain;
+    object-fit:cover; /*cover to fill in to the edges*/
     object-position: top;
+}
+
+.card-img-wrapper {
+    position: relative; 
+    aspect-ratio: 357/200; /*only set on image instead of the whole card*/
 }
 
 .profile {
@@ -155,8 +160,7 @@ nav {
     justify-content: center;
     align-items:center;
     width: 100%;
-    background-color:#292929;
-   
+    background-color:#292929; 
 }
 
 .profile-img {
@@ -207,7 +211,9 @@ nav {
 }
 
 
+
 /* Project Page layout */
+
 
 .wrapper--project {
     max-width: 70rem;
@@ -258,15 +264,14 @@ nav {
 }
 
 .project-sum {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    display: flex;
+    flex-direction: column;
     place-items: center;
 }
 
 .project-sum p {
     text-align: center;
     max-width: 57.5rem;
-    max-height: 7rem;
 }
 
 .gallery-img {
@@ -308,29 +313,15 @@ nav {
 }
 
 .project-card-row {
-    display: grid;
+    display: flex;
+    flex-direction: row;
     gap: 1.25rem;
     margin-top: 2rem;
     margin-bottom: 2rem;
-    grid-template-columns: repeat(auto-fit, minmax(calc((66rem - 2 * 1.25rem) / 3), 3fr));
     max-width: 1108px;
     margin-left: auto;
     margin-right: auto;
 }
-
-.card--row {
-    position: relative;
-    /*border: 3px solid pink;*/
-    aspect-ratio: 1/ 1;
-}
-
-.card-img--row {
-    position: absolute;
-    width: 100%;
-    object-fit:contain;
-    object-position: top;
-}
-
 
 @media (max-width: 40em) {
     /* Styles for screens up to 40em (640px) width - mobile */
@@ -351,8 +342,7 @@ nav {
         gap: 1rem; /* Reduce gap between items */
     }
 
-    .card-img {
-        aspect-ratio: 1 / 1;
+    .card-img { 
         position: relative;
     }
 
@@ -370,7 +360,6 @@ nav {
 
     .project-sum p {
         padding-inline: 1rem;
-        max-height: none;
     }
 
     .main-content-grid--project {
@@ -378,8 +367,14 @@ nav {
     }
 
     .project-card-row {
+        flex-direction: column;
         max-width: none;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
 
+    .mob-order {
+        order: 2; /* moving card to the middle when on mobile*/
     }
 
 }
