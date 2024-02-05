@@ -358,6 +358,16 @@ nav {
         padding-inline: 0; /* Adjust padding for smaller screens */
     }
 
+    .home-link {
+        padding-inline: 1rem;
+    }
+    .primary-header--project {
+        padding-inline: 1rem;
+    }
+    .primary-header--project h1 {
+        margin-right: 2rem;
+    }
+
     .project-sum p {
         padding-inline: 1rem;
     }
@@ -373,8 +383,12 @@ nav {
         margin-right: 1rem;
     }
 
-    .mob-order {
-        order: 2; /* moving card to the middle when on mobile*/
+    .mob-order-mid {
+        order: 1; /* moving card to the middle when on mobile*/
+    }
+
+    .mob-order-last {
+        order: 2;
     }
 
 }
